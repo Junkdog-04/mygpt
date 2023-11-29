@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobBot</title>
+</head>
+<body>
+    <div id="chatbox">
+        <p id="botStarterMessage">Hola, soy JobBot. ¿Cómo puedo ayudarte hoy?</p>
+    </div>
+    <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Escribe aquí...">
+        <input id="buttonInput" type="submit" value="Enviar">
+    </div>
+    <script>
+        function getBotResponse() {
+            var rawText = $("#textInput").val();
+            $.get("/get", { msg: rawText }).done(function(data) {
+                var botHtml = '<p class="botResponse">' + data + '</p>';
+                $("#chatbox").append(botHtml);
+                $("#textInput").val("");
+            });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+            getBotResponse();
+        })
+    </script>
+</body>
+</html>
