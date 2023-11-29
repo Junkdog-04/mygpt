@@ -19,7 +19,7 @@ This is the architecture of this project
 
 First, clone this repository at your computer
 ```bash
-git clone https://github.com/yourusername/mychatbot.git
+git clone https://github.com/Junkdog-04/mygpt.git
 ```
 Then, navigate to the project directory:
 ```
